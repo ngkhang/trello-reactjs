@@ -14,26 +14,35 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'react-refresh', 'react-hooks', 'jsx-a11y', 'import'],
   rules: {
+    // For react-refresh ==========
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
+
+    // For react-hooks ==========
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'off',
     'react/display-name': 'off',
     'react/jsx-filename-extension': ['warn', { 'extensions': ['.ts', '.tsx'] }],
     'react/require-default-props': 'off',
-    'react/react-in-jsx-scope': 'off', // 👈 In React > 17, no longer need to import react when writing JSX if no use
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'warn',
+
+    // For import ==========
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': 'off',
     'import/no-absolute-path': 'off',
     'import/prefer-default-export': 'warn',
+
+    // For jsx-a11y ==========
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
+
+    // Common ==========
     'array-bracket-spacing': 'warn',
     'arrow-spacing': 'warn',
     'arrow-body-style': ['error', 'as-needed'],
@@ -66,5 +75,12 @@ module.exports = {
     'prefer-const': 'error',
     'object-curly-spacing': ['warn', 'always'],
 
+    // For Material UI ==========
+    'no-restricted-imports': [
+      'error',
+      {
+        'patterns': ['@mui/*/*/*'],
+      }
+    ]
   },
 }
