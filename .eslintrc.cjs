@@ -10,7 +10,7 @@ module.exports = {
     'airbnb',
     'airbnb/hooks',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'commitlint.config.ts', 'vite.config.ts'],
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'react-refresh', 'react-hooks', 'jsx-a11y', 'import'],
   rules: {
@@ -36,6 +36,29 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-absolute-path': 'off',
     'import/prefer-default-export': 'warn',
+    'import/order': ['error', {
+      'groups': [
+        'builtin',
+        'external',
+        'internal',
+        'parent',
+        'sibling',
+        'index',
+      ],
+      'pathGroups': [
+        {
+          'pattern': 'react',
+          'group': 'external',
+          'position': 'before',
+        },
+      ],
+      'pathGroupsExcludedImportTypes': ['react'],
+      'newlines-between': 'always',
+      'alphabetize': {
+        'order': 'asc',
+        'caseInsensitive': true,
+      },
+    }],
 
     // For jsx-a11y ==========
     'jsx-a11y/anchor-is-valid': 'off',
@@ -67,7 +90,7 @@ module.exports = {
       {
         'avoidEscape': true,
         'allowTemplateLiterals': true,
-      }
+      },
     ],
     'quote-props': ['error', 'consistent-as-needed'],
     'space-before-blocks': ['error', 'always'],
@@ -80,7 +103,7 @@ module.exports = {
       'error',
       {
         'patterns': ['@mui/*/*/*'],
-      }
-    ]
+      },
+    ],
   },
-}
+};
